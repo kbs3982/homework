@@ -13,8 +13,8 @@ trs = soup.select('#body-content > div.newest-list > div > table > tbody > tr')
 # writer td.info > a.artist.ellipsis
 
 for tr in trs:
-    # rank = tr.select_one('td.number')
+    rank = tr.select_one('td.number').text[:2].strip()
     name = tr.select_one('td.info > a.title.ellipsis').text.strip()
-    # writer = tr.select_one('td.info > a.artist.ellipsis')
+    artist = tr.select_one('td.info > a.artist.ellipsis').text
 
-    print(name)
+    print(rank,name,artist)
